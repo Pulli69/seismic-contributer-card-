@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Contributor Card</title>
+  <link rel="stylesheet" href="card.css">
+</head>
+<body>
+
+<div class="card">
+  <div class="card-bg"></div>
+  <div id="cardAccent" class="card-accent"></div>
+
+  <img id="profilePhoto" class="profile-photo" src="" alt="Profile Photo">
+  <img id="roleImage" class="role-image" src="" alt="Role Badge">
+
+  <div class="card-text">
+    <div id="nameText" class="name"></div>
+    <div id="xText" class="handle"></div>
+    <div id="timeText" class="member"></div>
+
+    <div class="stats-single">
+      <div id="discordText"></div>
+      <div id="xContentText"></div>
+      <div id="artText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = "seismicCardData";
+  const savedRaw = localStorage.getItem(STORAGE_KEY);
+
+  if (savedRaw) {
+    const saved = JSON.parse(savedRaw);
+
+    document.getElementById("nameText").innerText = saved.name || "";
+    document.getElementById("xText").innerText = saved.x ? "@" + saved.x : "";
+    document.getElementById("timeText").innerText = saved.time || "";
+
+    document.getElementById("discordText").innerText = "Discord: ~" + saved.discord + "k+ messages";
+    document.getElementById("xContentText").innerText = "Content: ~" + saved.xcontent + "+ posts";
+    document.getElementById("artText").innerText = saved.art >= 80 ? "Art: ~80–150+ artworks" : "Art: ~" + saved.art + " works";
+
+    if (saved.photo) document.getElementById("profilePhoto").src = saved.photo;
+
+    const roleImg = document.getElementById("roleImage");
+    const accent = document.getElementById("cardAccent");
+    accent.className = "card-accent";
+
+    if (saved.role === "leader") {
+      roleImg.src = "assets/images/magnitudes/leader.png";
+      accent.classList.add("role-leader");
+    } else if (saved.role === "mod") {
+      roleImg.src = "assets/images/magnitudes/mod.png";
+      accent.classList.add("role-mod");
+    } else {
+      roleImg.src = "assets/images/magnitudes/" + saved.role + ".png";
+      const m = parseInt(saved.role.replace("mag",""),10);
+      if (m <= 3) accent.classList.add("role-mag-low");
+      else if (m <= 5) accent.classList.add("role-mag-mid");
+      else accent.classList.add("role-mag-" + m);
+    }
+  }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Build Contributor Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="builder">
+
+  <section class="step active" id="step-identity">
+    <h2>Your Identity</h2>
+    <input id="nameInput" placeholder="Your name">
+    <input id="xInput" placeholder="X username (without @)">
+    <button onclick="nextStep('step-photo')">Next</button>
+  </section>
+
+  <section class="step" id="step-photo">
+    <h2>Profile Photo</h2>
+    <input type="file" accept="image/*" onchange="setPhoto(event)">
+    <button onclick="nextStep('step-time')">Next</button>
+  </section>
+
+  <section class="step" id="step-time">
+    <h2>Contribution Time</h2>
+    <div class="option" onclick="setTime('< 1 month')">&lt; 1 month</div>
+    <div class="option" onclick="setTime('1–3 months')">1–3 months</div>
+    <div class="option" onclick="setTime('3–6 months')">3–6 months</div>
+    <div class="option" onclick="setTime('6+ months')">6+ months</div>
+  </section>
+
+  <section class="step" id="step-discord">
+    <h2>Discord Activity</h2>
+    <input type="range" min="1" max="40" value="1" id="discordRange">
+    <div id="discordValue">1k messages</div>
+    <button onclick="nextStep('step-xcontent')">Next</button>
+  </section>
+
+  <section class="step" id="step-xcontent">
+    <h2>X Content</h2>
+    <input type="range" min="1" max="200" value="1" id="xRange">
+    <div id="xValue">1 post</div>
+    <button onclick="nextStep('step-art')">Next</button>
+  </section>
+
+  <section class="step" id="step-art">
+    <h2>Art / Design</h2>
+    <input type="range" min="1" max="200" value="1" id="artRange">
+    <div id="artValue">1 work</div>
+    <button onclick="nextStep('step-role')">Next</button>
+  </section>
+
+  <section class="step" id="step-role">
+    <h2>Select Role</h2>
+    <div class="option" onclick="setRole('leader')">Leader</div>
+    <div class="option" onclick="setRole('mod')">Moderator</div>
+    <div class="option" onclick="setRole('mag1')">Magnitude 1</div>
+    <div class="option" onclick="setRole('mag2')">Magnitude 2</div>
+    <div class="option" onclick="setRole('mag3')">Magnitude 3</div>
+    <div class="option" onclick="setRole('mag4')">Magnitude 4</div>
+    <div class="option" onclick="setRole('mag5')">Magnitude 5</div>
+    <div class="option" onclick="setRole('mag6')">Magnitude 6</div>
+    <div class="option" onclick="setRole('mag7')">Magnitude 7</div>
+    <div class="option" onclick="setRole('mag8')">Magnitude 8</div>
+    <div class="option" onclick="setRole('mag9')">Magnitude 9</div>
+  </section>
+
+ <section class="step" id="step-result">
+  <h2>Your Contributor Card</h2>
+  <iframe id="cardFrame" class="card-preview" src="card.html"></iframe>
+</section>
+
+
+</div>
+
+<script src="builder.js"></script>
+</body>
+</html>
+

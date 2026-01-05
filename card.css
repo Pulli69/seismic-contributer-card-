@@ -1,0 +1,182 @@
+/* =========================
+   CARD BASE
+========================= */
+body {
+  margin: 0;
+  background: transparent;
+  font-family: Inter, system-ui, sans-serif;
+  color: white;
+}
+
+.card {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #3a0a4a, #120014);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   BACKGROUND IMAGE
+========================= */
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/images/backgrounds/card-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%; /* adjust zoom */
+  z-index: 1;
+}
+
+/* =========================
+   ROLE ACCENT HOLDER
+========================= */
+.card-accent {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =========================
+   PROFILE PHOTO
+========================= */
+.profile-photo {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 4;
+  border: 3px solid transparent;
+  box-shadow: 0 0 0 transparent;
+}
+
+/* =========================
+   ROLE / MAG BADGE
+========================= */
+.role-image {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  z-index: 4;
+}
+
+/* =========================
+   NAME + HANDLE
+========================= */
+.card-text {
+  position: absolute;
+  bottom: 170px;
+  width: 100%;
+  text-align: center;
+  z-index: 6;
+  padding: 0 20px;
+}
+
+.card-text .name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-text .handle {
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+.member {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* =========================
+   CONTRIBUTION (SINGLE COLUMN)
+========================= */
+.stats-single {
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+/* =========================
+   PROFILE GLOW
+========================= */
+.card.role-mag-low .profile-photo {
+  border-color: #e9b6ff;
+  box-shadow: 0 0 18px #e9b6ff;
+}
+.card.role-mag-mid .profile-photo {
+  border-color: #6ee7b7;
+  box-shadow: 0 0 18px #6ee7b7;
+}
+.card.role-mag-6 .profile-photo {
+  border-color: #facc15;
+  box-shadow: 0 0 18px #facc15;
+}
+.card.role-mag-7 .profile-photo {
+  border-color: #fb923c;
+  box-shadow: 0 0 18px #fb923c;
+}
+.card.role-mag-8 .profile-photo {
+  border-color: #ef4444;
+  box-shadow: 0 0 18px #ef4444;
+}
+.card.role-mag-9 .profile-photo {
+  border-color: #3b82f6;
+  box-shadow: 0 0 18px #3b82f6;
+}
+.card.role-leader .profile-photo {
+  border-color: #e7d3b1;
+  box-shadow: 0 0 18px #e7d3b1;
+}
+.card.role-mod .profile-photo {
+  border-color: #7c3aed;
+  box-shadow: 0 0 18px #7c3aed;
+}
+
+/* =========================
+   ROLE BADGE GLOW (PNG SAFE)
+========================= */
+.card.role-mag-low .role-image {
+  filter: drop-shadow(0 0 12px #e9b6ff);
+}
+.card.role-mag-mid .role-image {
+  filter: drop-shadow(0 0 12px #6ee7b7);
+}
+.card.role-mag-6 .role-image {
+  filter: drop-shadow(0 0 14px #facc15);
+}
+.card.role-mag-7 .role-image {
+  filter: drop-shadow(0 0 14px #fb923c);
+}
+.card.role-mag-8 .role-image {
+  filter: drop-shadow(0 0 14px #ef4444);
+}
+.card.role-mag-9 .role-image {
+  filter: drop-shadow(0 0 14px #3b82f6);
+}
+.card.role-leader .role-image {
+  filter: drop-shadow(0 0 14px #e7d3b1);
+}
+.card.role-mod .role-image {
+  filter: drop-shadow(0 0 14px #7c3aed);
+}
